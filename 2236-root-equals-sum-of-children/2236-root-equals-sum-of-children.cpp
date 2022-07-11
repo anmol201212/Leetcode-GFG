@@ -13,7 +13,7 @@ class Solution {
 public:
     bool checkTree(TreeNode* root) {
         if(root==NULL) return NULL;
-        int sum = (root->left->val) + (root->right->val);
-        return (sum==root->val);
+        // int sum = (root->left->val) + (root->right->val);
+        return (((root->left->val) + (root->right->val))==root->val);
     }
 };
