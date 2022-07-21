@@ -10,23 +10,29 @@
  * };
  */
 class Solution {
+    // int res=0;
 public:
-    int height(TreeNode *root){
-        if(root==NULL){
-            return 0;
-        }
-        else{
-            return 1+max(height(root->left),height(root->right));
-        }
-        
-    }
+    
+    // int diameterOfBinaryTree(TreeNode* root) {
+    //     if(root==NULL){
+    //         return 0;
+    //     }
+    //     int lh = diameterOfBinaryTree(root->left);
+    //     int rh = diameterOfBinaryTree(root->right);
+    //     res = max(res,lh+rh);
+    //     return max(lh,rh)+1;
+    // }
     int diameterOfBinaryTree(TreeNode* root) {
-        if(root==NULL){
-            return 0;
-        }
-        int d1= height(root->left) + height(root->right);
-        int d2 = diameterOfBinaryTree(root->left);
-        int d3 = diameterOfBinaryTree(root->right);
-        return max(d1,max(d2,d3));
+        int d=0;
+        rec(root, d);
+        return d;
+    }
+    
+    int rec(TreeNode* root, int &d) {
+        if(root == NULL) return 0;
+        int ld = rec(root->left, d);
+        int rd = rec(root->right, d);
+        d=max(d,ld+rd);
+        return max(ld,rd)+1;
     }
 };
