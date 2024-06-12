@@ -1,5 +1,3 @@
 class Solution:
     def nthPersonGetsNthSeat(self, n: int) -> float:
-        if n ==1:
-            return 1
-        return 0.5
+        return 1 if n==1 else 0.5
